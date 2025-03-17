@@ -1,18 +1,66 @@
+"use client"  // Ajoutez cette ligne en haut du fichier
+
 import Head from 'next/head'
 import Image from 'next/image'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination } from 'swiper/modules';
+
+import 'swiper/css'
+import 'swiper/css/pagination'
+
+
+
+const teamMembers = [
+    {
+        name: "Paul LOISEAU",
+        role: "Photographe en Chef",
+        description: "Paul capture des images époustouflantes de la faune pour notre exposition.",
+        image: "/team/paul.jpg",
+        link: "https://www.instagram.com/paulo_wildlife?igsh=MTQ1YmJiYmNseXRhbw=="
+    },
+    {
+        name: "Nikitas GIAKKOUPIS",
+        role: "Responsable de l'Animation",
+        description: "Nikitas est un animateur dynamique qui garantit que chaque événement est engageant et mémorable pour tous les participants.",
+        image: "/team/nikitas.jpg"
+    },
+    {
+        name: "Matthieu PAILLAT",
+        role: "Gestionnaire du Matériel",
+        description: "Matthieu supervise la logistique et les aspects techniques de notre projet, assurant une organisation rigoureuse et efficace.",
+        image: "/team/matthieu.jpg"
+    },
+    {
+        name: "Maxime BOHLER",
+        role: "Coordinateur des Nouveaux Projets",
+        description: "Maxime apporte son expertise et son énergie pour développer de nouvelles initiatives et soutenir l'équipe dans ses missions.",
+        image: "/team/maxime.jpg"
+    },
+    {
+        name: "Max DECKMYN",
+        role: "Développeur Logistique",
+        description: "Max gère la logistique et l'itinéraire, s'assurant que chaque détail est planifié avec précision pour le succès de notre aventure.",
+        image: "/team/max.jpg"
+    },
+    {
+        name: "Zoé BARDIN",
+        role: "Designer en Communication Visuelle",
+        description: "Zoé apporte sa créativité et son talent artistique pour concevoir des visuels attrayants qui renforcent notre communication.",
+        image: "/team/zoe.jpg"
+    }
+]
+
 
 export default function Home() {
     return (
         <div className="bg-gray-100">
             <Head>
-                <title>Tour du Mont Blanc - Site Web Officiel</title>
+                <title>Tour du Mont Blanc</title>
                 <meta name="description" content="Suivez notre aventure du tour du Mont Blanc en temps réel : itinéraire, budget, cagnotte, et plus encore." />
             </Head>
-
-            {/* Section Hero */}
             <section
                 className="relative h-screen bg-cover bg-center"
-                style={{ backgroundImage: "url('/tmb_background.png')" }}
+                style={{ backgroundImage: "url('/background.png')" }}
             >
                 <div className="absolute inset-0 bg-black opacity-50"></div>
                 <div className="relative z-10 flex flex-col justify-center items-center h-full text-center text-white px-4">
@@ -46,52 +94,50 @@ export default function Home() {
             <section id="team" className="py-16 bg-white px-4">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl font-bold text-center mb-6">Notre Équipe</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <Image
-                                src="/paul_loiseau.jpg"
-                                alt="Membre de l'équipe"
-                                width={128}
-                                height={128}
-                                className="rounded-full mx-auto mb-4"
-                            />
-                            <h3 className="text-xl font-semibold text-center">Paul Loiseau</h3>
-                            <p className="text-center text-gray-600">Photographe</p>
-                            <a href="https://www.instagram.com/paulo_wildlife?igsh=MTQ1YmJiYmNseXRhbw==" className="mt-2 text-gray-700 text-center">
-                                Passionnée de photographie animalière, Paul pourra prendre une fois sur place de magnifique photo pour notre exposition.
-                            </a>
-                        </div>
-                        {/* Membre 2 */}
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <Image
-                                src="/nikitas_giakkoupis.png"
-                                alt="Membre de l'équipe"
-                                width={128}
-                                height={128}
-                                className="rounded-full mx-auto mb-4"
-                            />
-                            <h3 className="text-xl font-semibold text-center">Nikitas GIAKKOUPIS</h3>
-                            <p className="text-center text-gray-600">Chargé de l&apos;animation</p>
-                            <p className="mt-2 text-gray-700 text-center">
-                                Nikitas et motivation sont une et même personne, il est dynamique donc impossible de s&apos;ennuyer !
-                            </p>
-                        </div>
-                        {/* Membre 3 */}
-                        <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <Image
-                                src="/matthieu_paillat.png"
-                                alt="Membre de l'équipe"
-                                width={128}
-                                height={128}
-                                className="rounded-full mx-auto mb-4"
-                            />
-                            <h3 className="text-xl font-semibold text-center">Matthieu PAILLAT</h3>
-                            <p className="text-center text-gray-600">Chargée du matériel</p>
-                            <p className="mt-2 text-gray-700 text-center">
-                                Toute l&apos;&eacute;quipe peut compter sur Matthieu pour une gestion riguoureuse de l&apos;aspect technique et logistique.
-                            </p>
-                        </div>
-                    </div>
+                    <Swiper
+                        slidesPerView={3}
+                        spaceBetween={30}
+                        loop={true}
+                        autoplay={{
+                            delay: 6000,
+                            disableOnInteraction: false,
+                        }}
+                        pagination={{
+                            clickable: true,
+                            dynamicBullets: true, // Active les bullets dynamiques
+                        }}
+                        modules={[Autoplay, Pagination]} // Ajout du module Autoplay
+                        className="pb-8"
+                    >
+                        {teamMembers.map((member) => (
+                            <SwiperSlide key={member.name}>
+                                <div className="bg-gray-100 p-6 rounded-lg shadow text-center">
+                                    <div className="flex justify-center mb-4">
+                                        <Image
+                                            src={member.image}
+                                            alt={`Photo de ${member.name}`}
+                                            width={128}
+                                            height={128}
+                                            className="rounded-full"
+                                        />
+                                    </div>
+                                    <h3 className="text-xl font-semibold">{member.name}</h3>
+                                    <p className="text-gray-600">{member.role}</p>
+                                    <p className="mt-2 text-gray-700">{member.description}</p>
+                                    {member.link && (
+                                        <a
+                                            href={member.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="mt-2 inline-block text-blue-500 hover:underline"
+                                        >
+                                            En savoir plus
+                                        </a>
+                                    )}
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                     <p className="mt-8 text-center text-gray-700">
                         Nous sommes avant tout amis, et ce projet est l’occasion de vivre ensemble une expérience unique tout en donnant de la visibilité à la faune et la flore des montagnes !
                     </p>
