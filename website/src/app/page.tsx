@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 
 export default function Home() {
     return (
@@ -35,8 +36,8 @@ export default function Home() {
                     <p className="mb-4 text-gray-700">
                         Nous sommes une équipe d’élèves de première engagés dans le cadre des classes engagées et en
                         continuité avec le projet Inside Out. Notre objectif est de réaliser un tour du Mont Blanc, pour
-                        sensibiliser à travers une expo photo sur l'éco-voyage et la nature. à notre retour, nous allons
-                        détailler tout notre parcours pour qu'il soit accessible à un maximum de personnes.
+                        sensibiliser à travers une expo photo sur l&apos;&eacute;co-voyage et la nature. à notre retour, nous allons
+                        détailler tout notre parcours pour qu&apos;il soit accessible à un maximum de personnes.
                     </p>
                 </div>
             </section>
@@ -47,7 +48,7 @@ export default function Home() {
                     <h2 className="text-3xl font-bold text-center mb-6">Notre Équipe</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                         <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <img
+                            <Image
                                 src="/paul_loiseau.jpg"
                                 alt="Membre de l'équipe"
                                 className="w-32 h-32 rounded-full mx-auto mb-4"
@@ -60,20 +61,20 @@ export default function Home() {
                         </div>
                         {/* Membre 2 */}
                         <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <img
+                            <Image
                                 src="/nikitas_giakkoupis.png"
                                 alt="Membre de l'équipe"
                                 className="w-32 h-32 rounded-full mx-auto mb-4"
                             />
                             <h3 className="text-xl font-semibold text-center">Nikitas GIAKKOUPIS</h3>
-                            <p className="text-center text-gray-600">Chargé de l'animation</p>
+                            <p className="text-center text-gray-600">Chargé de l&apos;animation</p>
                             <p className="mt-2 text-gray-700 text-center">
-                                Nikitas et motivation sont une et même personne, il est dynamique donc impossible de s'ennuyer !
+                                Nikitas et motivation sont une et même personne, il est dynamique donc impossible de s&apos;ennuyer !
                             </p>
                         </div>
                         {/* Membre 3 */}
                         <div className="bg-gray-100 p-6 rounded-lg shadow">
-                            <img
+                            <Image
                                 src="/matthieu_paillat.png"
                                 alt="Membre de l'équipe"
                                 className="w-32 h-32 rounded-full mx-auto mb-4"
@@ -81,12 +82,12 @@ export default function Home() {
                             <h3 className="text-xl font-semibold text-center">Matthieu PAILLAT</h3>
                             <p className="text-center text-gray-600">Chargée du matériel</p>
                             <p className="mt-2 text-gray-700 text-center">
-                                Toute l'équipe peut compter sur Matthieu pour une gestion riguoureuse de l'aspect technique et logistique.
+                                Toute l&apos;&eacute;quipe peut compter sur Matthieu pour une gestion riguoureuse de l&apos;aspect technique et logistique.
                             </p>
                         </div>
                     </div>
                     <p className="mt-8 text-center text-gray-700">
-                        Nous sommes avant tout amis, et ce projet est l’occasion de vivre ensemble une expérience unique.
+                        Nous sommes avant tout amis, et ce projet est l’occasion de vivre ensemble une expérience unique tout en donnant de la visibilité à la faune et la flore des montagnes !
                     </p>
                 </div>
             </section>
