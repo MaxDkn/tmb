@@ -51,7 +51,9 @@ export default function Home() {
                             <Image
                                 src="/paul_loiseau.jpg"
                                 alt="Membre de l'équipe"
-                                className="w-32 h-32 rounded-full mx-auto mb-4"
+                                width={128}
+                                height={128}
+                                className="rounded-full mx-auto mb-4"
                             />
                             <h3 className="text-xl font-semibold text-center">Paul Loiseau</h3>
                             <p className="text-center text-gray-600">Photographe</p>
@@ -64,7 +66,9 @@ export default function Home() {
                             <Image
                                 src="/nikitas_giakkoupis.png"
                                 alt="Membre de l'équipe"
-                                className="w-32 h-32 rounded-full mx-auto mb-4"
+                                width={128}
+                                height={128}
+                                className="rounded-full mx-auto mb-4"
                             />
                             <h3 className="text-xl font-semibold text-center">Nikitas GIAKKOUPIS</h3>
                             <p className="text-center text-gray-600">Chargé de l&apos;animation</p>
@@ -77,7 +81,9 @@ export default function Home() {
                             <Image
                                 src="/matthieu_paillat.png"
                                 alt="Membre de l'équipe"
-                                className="w-32 h-32 rounded-full mx-auto mb-4"
+                                width={128}
+                                height={128}
+                                className="rounded-full mx-auto mb-4"
                             />
                             <h3 className="text-xl font-semibold text-center">Matthieu PAILLAT</h3>
                             <p className="text-center text-gray-600">Chargée du matériel</p>
