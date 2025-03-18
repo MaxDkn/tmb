@@ -6,7 +6,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import ItineraryMapAndTimeline from '@/components/Itinerary'
+import GoogleEarthIntegration from '@/components/Itinerary'
 
 
 
@@ -14,28 +14,33 @@ const teamMembers = [
     {
         name: "Paul LOISEAU",
         role: "Photographe",
+        description: "Paul capture des images époustouflantes de la faune pour notre exposition.",
         image: "/team/paul.jpg",
         link: "https://www.instagram.com/paulo_wildlife?igsh=MTQ1YmJiYmNseXRhbw=="
     },
     {
         name: "Nikitas GIAKKOUPIS",
+        description: "Nikitas est un animateur dynamique qui garantit que chaque événement est engageant et mémorable pour tous les participants.",
         image: "/team/nikitas.jpg"
     },
     {
         name: "Matthieu PAILLAT",
+        description: "Matthieu supervise la logistique et les aspects techniques de notre projet, assurant une organisation rigoureuse et efficace.",
         image: "/team/matthieu.jpg"
     },
     {
         name: "Maxime BOHLER",
+        description: "Maxime apporte son expertise et son énergie pour développer de nouvelles initiatives et soutenir l'équipe dans ses missions.",
         image: "/team/maxime.jpg"
     },
     {
         name: "Max DECKMYN",
+        description: "Max gère la logistique et l'itinéraire, s'assurant que chaque détail est planifié avec précision pour le succès de notre aventure.",
         image: "/team/max.jpg"
     },
     {
         name: "Zoé BARDIN",
-        role: "Designeuse",
+        description: "Zoé apporte sa créativité et son talent artistique pour concevoir des visuels attrayants qui renforcent notre communication.",
         image: "/team/zoe.jpg"
     }
 ]
@@ -87,11 +92,11 @@ export default function Home() {
                     <Swiper
                         breakpoints={{
                             320: { // Pour les très petits écrans (mobile)
-                                slidesPerView: 1,
+                                slidesPerView: 1.5,
                                 spaceBetween: 10,
                             },
                             640: { // Pour les écrans moyens (tablettes)
-                                slidesPerView: 2,
+                                slidesPerView: 2.5,
                                 spaceBetween: 20,
                             },
                             1024: { // Pour les écrans larges (PC)
@@ -137,6 +142,7 @@ export default function Home() {
                                             ) : (<p className="text-gray-600">{member.role}</p>)
 
                                     )}
+                                    <p className="mt-2 text-gray-700">{member.description}</p>
 
                                 </div>
                             </SwiperSlide>
@@ -149,8 +155,8 @@ export default function Home() {
             </section>
 
             {/* Section Itinéraire */}
-            <ItineraryMapAndTimeline></ItineraryMapAndTimeline>
-            <section id="itineraire" className="py-16 px-4 bg-gray-50">
+            <GoogleEarthIntegration/>
+            {/* <section id="itineraire" className="py-16 px-4 bg-gray-50">
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-3xl font-bold text-center mb-6">Itinéraire</h2>
                     <div className="mb-8">
@@ -177,11 +183,10 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="mt-8">
-                        {/* Carte intégrée */}
 
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Section Cagnotte */}
             <section id="funds" className="py-16 px-4">
