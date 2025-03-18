@@ -1,5 +1,4 @@
-"use client"  // Ajoutez cette ligne en haut du fichier
-
+"use client"
 import Head from 'next/head'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -7,45 +6,36 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import ItineraryMapAndTimeline from '@/components/Itinerary'
 
 
 
 const teamMembers = [
     {
         name: "Paul LOISEAU",
-        role: "Photographe en Chef",
-        description: "Paul capture des images époustouflantes de la faune pour notre exposition.",
+        role: "Photographe",
         image: "/team/paul.jpg",
         link: "https://www.instagram.com/paulo_wildlife?igsh=MTQ1YmJiYmNseXRhbw=="
     },
     {
         name: "Nikitas GIAKKOUPIS",
-        role: "Responsable de l'Animation",
-        description: "Nikitas est un animateur dynamique qui garantit que chaque événement est engageant et mémorable pour tous les participants.",
         image: "/team/nikitas.jpg"
     },
     {
         name: "Matthieu PAILLAT",
-        role: "Gestionnaire du Matériel",
-        description: "Matthieu supervise la logistique et les aspects techniques de notre projet, assurant une organisation rigoureuse et efficace.",
         image: "/team/matthieu.jpg"
     },
     {
         name: "Maxime BOHLER",
-        role: "Coordinateur des Nouveaux Projets",
-        description: "Maxime apporte son expertise et son énergie pour développer de nouvelles initiatives et soutenir l'équipe dans ses missions.",
         image: "/team/maxime.jpg"
     },
     {
         name: "Max DECKMYN",
-        role: "Développeur Logistique",
-        description: "Max gère la logistique et l'itinéraire, s'assurant que chaque détail est planifié avec précision pour le succès de notre aventure.",
         image: "/team/max.jpg"
     },
     {
         name: "Zoé BARDIN",
-        role: "Designer en Communication Visuelle",
-        description: "Zoé apporte sa créativité et son talent artistique pour concevoir des visuels attrayants qui renforcent notre communication.",
+        role: "Designeuse",
         image: "/team/zoe.jpg"
     }
 ]
@@ -95,8 +85,20 @@ export default function Home() {
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl font-bold text-center mb-6">Notre Équipe</h2>
                     <Swiper
-                        slidesPerView={3}
-                        spaceBetween={30}
+                        breakpoints={{
+                            320: { // Pour les très petits écrans (mobile)
+                                slidesPerView: 1,
+                                spaceBetween: 10,
+                            },
+                            640: { // Pour les écrans moyens (tablettes)
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                            },
+                            1024: { // Pour les écrans larges (PC)
+                                slidesPerView: 3.5,
+                                spaceBetween: 30,
+                            },
+                        }}
                         loop={true}
                         autoplay={{
                             delay: 6000,
@@ -104,9 +106,9 @@ export default function Home() {
                         }}
                         pagination={{
                             clickable: true,
-                            dynamicBullets: true, // Active les bullets dynamiques
+                            dynamicBullets: true,
                         }}
-                        modules={[Autoplay, Pagination]} // Ajout du module Autoplay
+                        modules={[Autoplay, Pagination]}
                         className="pb-8"
                     >
                         {teamMembers.map((member) => (
@@ -122,18 +124,20 @@ export default function Home() {
                                         />
                                     </div>
                                     <h3 className="text-xl font-semibold">{member.name}</h3>
-                                    <p className="text-gray-600">{member.role}</p>
-                                    <p className="mt-2 text-gray-700">{member.description}</p>
-                                    {member.link && (
-                                        <a
-                                            href={member.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="mt-2 inline-block text-blue-500 hover:underline"
-                                        >
-                                            En savoir plus
-                                        </a>
+                                    {member.role && (
+                                        member.link ? (
+                                            <a
+                                                href={member.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="mt-2 inline-block text-blue-500 hover:underline"
+                                            >
+                                                {member.role}
+                                            </a>
+                                            ) : (<p className="text-gray-600">{member.role}</p>)
+
                                     )}
+
                                 </div>
                             </SwiperSlide>
                         ))}
@@ -145,6 +149,7 @@ export default function Home() {
             </section>
 
             {/* Section Itinéraire */}
+            <ItineraryMapAndTimeline></ItineraryMapAndTimeline>
             <section id="itineraire" className="py-16 px-4 bg-gray-50">
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-3xl font-bold text-center mb-6">Itinéraire</h2>
