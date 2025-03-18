@@ -6,7 +6,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import GoogleEarthIntegration from '@/components/Itinerary'
+import FlattenedEllipticalItinerary from '@/components/Itinerary'
 
 
 
@@ -155,7 +155,8 @@ export default function Home() {
             </section>
 
             {/* Section Itinéraire */}
-            <GoogleEarthIntegration/>
+            <FlattenedEllipticalItinerary/>
+
             {/* <section id="itineraire" className="py-16 px-4 bg-gray-50">
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-3xl font-bold text-center mb-6">Itinéraire</h2>
