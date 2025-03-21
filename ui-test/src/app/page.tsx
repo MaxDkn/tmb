@@ -13,16 +13,17 @@ export default function Home() {
     <Container>
       <Hero />
       <SectionTitle
-        preTitle="Nextly Benefits"
-        title=" Why should you use this landing page"
+        preTitle="Projet Tour du Mont Blanc"
+        title="Quel est notre projet"
       >
-        Nextly is a free landing page & marketing website template for startups
-        and indie projects. Its built with Next.js & TailwindCSS. And its
-        completely open-source.
+        Nous sommes une équipe d’élèves de première au lycée public de Cesson-Sévigné, engagés dans le cadre des classes engagées 
+        et en continuité avec le projet Inside Out. Notre objectif est de réaliser un tour du 
+        Mont Blanc, pour sensibiliser à travers une expo photo sur l'éco-voyage et la nature. 
+        à notre retour, nous allons détailler tout notre parcours pour qu'il soit accessible à 
+        un maximum de personnes.
       </SectionTitle>
 
       <Benefits data={benefitOne} />
-      <Benefits imgPos="right" data={benefitTwo} />
 
       <SectionTitle
         preTitle="Watch a video"

@@ -1,6 +1,34 @@
 import Image from "next/image";
 import React from "react";
 import { Container }  from "@/components/Container";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+} from "@material-tailwind/react";
+
+
+function ProfilesCard() {
+  return (
+    <Card className="max-w-md">
+      <CardHeader
+        as="img"
+        src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&fit=crop&w=800&q=80"
+        alt="profile-picture"
+      />
+      <CardBody className="text-center">
+        
+        <Typography type="h5">Andrew Alexa</Typography>
+        <Typography className="my-1 text-foreground">
+          CEO & Co-Founder
+        </Typography>
+      </CardBody>
+      
+    </Card>
+  );
+}
+
 
 interface BenefitsProps {
   imgPos?: "left" | "right";
@@ -25,15 +53,7 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
             props.imgPos === "right" ? "lg:order-1" : ""
           }`}>
           <div>
-            <Image
-              src={data.image}
-              width={521}
-              height={521}
-              alt="Benefits"
-              className={"object-cover"}
-              placeholder="blur"
-              blurDataURL={data.image.src}
-            />
+            <ProfilesCard/>
           </div>
         </div>
 

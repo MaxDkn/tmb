@@ -3,6 +3,7 @@ import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image"
 import { Disclosure } from "@headlessui/react";
+import { useState, useEffect } from "react";
 
 export const Navbar = () => {
   const navigation = [
@@ -12,13 +13,39 @@ export const Navbar = () => {
     "Budget",
     "Contact",
   ];
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  // Fonction de contrôle de la navbar lors du scroll
+  const controlNavbar = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY) {
+        // Si on défile vers le bas, on masque la navbar
+        setShowNavbar(false);
+      } else {
+        // Si on défile vers le haut, on affiche la navbar
+        setShowNavbar(true);
+      }
+      setLastScrollY(window.scrollY);
+    }
+  };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlNavbar);
+      return () => {
+        window.removeEventListener("scroll", controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
 
   return (
-    <div className="w-full">
-      <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-1">
+    <div className={`w-full fixed top-0 z-50 transition-transform duration-300 ${
+      showNavbar ? "translate-y-0" : "-translate-y-full"}`}>
+      <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-1 bg-white dark:bg-trueGray-900">
+        {/* "container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-1  */}
         {/* Logo  */}
         <Link href="/">
-          <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
+          <span className="flex items-center space-x-2 text-3xl font-medium text-green-600 dark:text-gray-100">
               <span>
                 <Image
                   src="/img/logo.svg"
@@ -28,7 +55,7 @@ export const Navbar = () => {
                   className="w-8"
                 />
               </span>
-            <span>Nextly</span>
+            <span>TMB</span>
           </span>
         </Link>
 
@@ -36,8 +63,8 @@ export const Navbar = () => {
         <div className="gap-3 nav__item mr-2 lg:flex ml-auto lg:ml-0 lg:order-2">
             <ThemeChanger />
             <div className="hidden mr-3 lg:flex nav__item">
-              <Link href="/" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
-                Get Started
+              <Link href="/" className="px-6 py-2 text-white bg-green-600 rounded-md md:ml-5">
+                Soutenir le projet
               </Link>
             </div>
         </div>
@@ -98,6 +125,7 @@ export const Navbar = () => {
         </div>
 
       </nav>
+      
     </div>
   );
 }
