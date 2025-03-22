@@ -17,19 +17,18 @@ export const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   // Fonction de contrôle de la navbar lors du scroll
-  const controlNavbar = () => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
-        // Si on défile vers le bas, on masque la navbar
-        setShowNavbar(false);
-      } else {
-        // Si on défile vers le haut, on affiche la navbar
-        setShowNavbar(true);
-      }
-      setLastScrollY(window.scrollY);
-    }
-  };
   useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== "undefined") {
+        if (window.scrollY > lastScrollY) {
+          setShowNavbar(false);
+        } else {
+          setShowNavbar(true);
+        }
+        setLastScrollY(window.scrollY);
+      }
+    };
+  
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", controlNavbar);
       return () => {
