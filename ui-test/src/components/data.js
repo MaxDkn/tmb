@@ -22,7 +22,7 @@ const benefitOne = {
     },
     {
       title: "Mais surtout bien accompagné : )",
-      desc: "Nous sommes une petite équipe de 6 lycéens, accompagner d'un professeur et d'une ancienne élève du lycée Sévigné.",
+      desc: "Nous sommes une petite équipe de 6 lycéens, accompagnés d'un professeur et d'une ancienne élève du lycée Sévigné.",
       icon: <ChartBarSquareIcon />,
     },
     {

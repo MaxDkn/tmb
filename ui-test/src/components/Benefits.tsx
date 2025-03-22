@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Container }  from "@/components/Container";
@@ -6,26 +7,92 @@ import {
   CardHeader,
   CardBody,
   Typography,
+  IconButton
 } from "@material-tailwind/react";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-function ProfilesCard() {
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { NavArrowRight, NavArrowLeft } from "iconoir-react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+
+function CustomNavigation() {
+  const swiper = useSwiper();
+
   return (
-    <Card className="max-w-md">
-      <CardHeader
-        as="img"
-        src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&fit=crop&w=800&q=80"
-        alt="profile-picture"
-      />
-      <CardBody className="text-center">
-        
-        <Typography type="h5">Andrew Alexa</Typography>
-        <Typography className="my-1 text-foreground">
-          CEO & Co-Founder
-        </Typography>
-      </CardBody>
-      
-    </Card>
+    <>
+      <IconButton
+        isCircular
+        size="lg"
+        variant="ghost"
+        color="secondary"
+        onClick={() => swiper.slidePrev()}
+        className="dark !absolute left-2 top-1/2 z-10 -translate-y-1/2"
+      >
+        <NavArrowLeft className="h-7 w-7 -translate-x-0.5 stroke-2" />
+      </IconButton>
+      <IconButton
+        isCircular
+        size="lg"
+        variant="ghost"
+        color="secondary"
+        onClick={() => swiper.slideNext()}
+        className="dark !absolute right-2 top-1/2 z-10 -translate-y-1/2"
+      >
+        <NavArrowRight className="h-7 w-7 translate-x-px stroke-2" />
+      </IconButton>
+    </>
+  );
+}
+
+function customPagination(_: number, className: string): string {
+  return `<span class="${className} w-4 h-4 [&.swiper-pagination-bullet-active]:!opacity-100 [&.swiper-pagination-bullet-active]:[background:rgb(var(--color-background))] !opacity-50 ![background:rgb(var(--color-background))]"></span>`;
+}
+
+function CarouselDemo() {
+  const teamMembers = [
+    { firstname: "Paul", lastname: "Loiseau", img: "/img/team/paul.JPG" },
+    { firstname: "Max", lastname: "Deckmyn", img: "/img/team/max.jpg" },
+    { firstname: "Nikitas", lastname: "Giakkoupis", img: "/img/team/nikitas.JPG" },
+    { firstname: "Maxime", lastname: "Bohler", img: "/img/team/maxime.jpg" },
+    { firstname: "Zoé", lastname: "Bardin", img: "/img/team/zoe.jpg" },
+    { firstname: "Matthieu", lastname: "Paillat", img: "/img/team/matthieu.jpg" },
+  ];
+  
+
+  return (
+    <div className="max-w-md">
+      <Swiper
+        loop={true}
+        autoplay={{ delay: 5000,
+                    disableOnInteraction: false }}
+        pagination={{ enabled: true,
+                      clickable: true,
+                      dynamicBullets: true,
+                      renderBullet: customPagination }}
+        modules={[Navigation, Pagination, Autoplay]}
+        className="relative rounded-lg [&_div.swiper-button-next]:text-background [&_div.swiper-button-prev]:text-background"
+      >
+        {teamMembers.map((member, index) => (
+          <SwiperSlide key={index} className="select-none relative">
+            <img
+              src={member.img}
+              alt={`image-${index}`}
+              className="h-[40rem] w-full object-cover"
+            />
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />
+            <div className="absolute bottom-4 left-0 w-full flex justify-center">
+              <span className="text-md tracking-wider text-green-700 dark:text-green-500">
+                {member.firstname} {member.lastname.toUpperCase()}
+              </span>
+    </div>
+          </SwiperSlide>
+        ))}
+        <CustomNavigation />
+      </Swiper>
+    </div>
   );
 }
 
@@ -44,6 +111,7 @@ interface BenefitsProps {
     }[];
   };
 }
+
 export const Benefits = (props: Readonly<BenefitsProps>) => {
   const { data } = props;
   return (
@@ -53,7 +121,7 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
             props.imgPos === "right" ? "lg:order-1" : ""
           }`}>
           <div>
-            <ProfilesCard/>
+            <CarouselDemo/>
           </div>
         </div>
 
@@ -88,7 +156,7 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
 function Benefit(props: any) {
   return (
       <div className="flex items-start mt-8 space-x-3">
-        <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-indigo-500 rounded-md w-11 h-11 ">
+        <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-green-600 rounded-md w-11 h-11 ">
           {React.cloneElement(props.icon, {
             className: "w-7 h-7 text-indigo-50",
           })}
