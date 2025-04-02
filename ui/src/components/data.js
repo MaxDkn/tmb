@@ -1,7 +1,6 @@
 import {
   FaceSmileIcon,
   ChartBarSquareIcon,
-  CursorArrowRaysIcon,
   DevicePhoneMobileIcon,
   AdjustmentsHorizontalIcon,
   SunIcon,
@@ -25,11 +24,7 @@ const benefitOne = {
       desc: "Nous sommes une petite équipe de 6 lycéens, accompagnés d'un professeur et d'une ancienne élève du lycée Sévigné.",
       icon: <ChartBarSquareIcon />,
     },
-    {
-      title: "Fidéliser notre communauté",
-      desc: "On veut créer une vraie communauté autour de notre projet, avec des gens qui aiment échanger et qui reviennent régulièrement pour suivre nos aventures.",
-      icon: <CursorArrowRaysIcon />,
-    },
+    
   ],
 };
 

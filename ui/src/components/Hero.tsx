@@ -12,7 +12,7 @@ export const Hero = () => {
               Projet Tour du Mont Blanc
             </h1>
             <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
-            Lycéens engagés, nous réalisons un tour du Mont Blanc pour sensibiliser à l’éco-voyage à travers une expo photo.
+            Lyc&eacute;ens engag&eacute;s, nous réalisons un tour du Mont Blanc pour sensibiliser à l&apos;&eacute;co-voyage à travers une expo photo.
             </p>
 
             <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">

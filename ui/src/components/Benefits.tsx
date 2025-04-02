@@ -1,12 +1,7 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import { Container }  from "@/components/Container";
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
   IconButton
 } from "@material-tailwind/react";
 
@@ -63,7 +58,7 @@ function CarouselDemo() {
   
 
   return (
-    <div className="max-w-md">
+    <div className="max-w-sm">
       <Swiper
         loop={true}
         autoplay={{ delay: 5000,
@@ -80,7 +75,7 @@ function CarouselDemo() {
             <img
               src={member.img}
               alt={`image-${index}`}
-              className="h-[40rem] w-full object-cover"
+              className="h-[38rem] w-full object-cover"
             />
             <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />
             <div className="absolute bottom-4 left-0 w-full flex justify-center">
@@ -99,6 +94,7 @@ function CarouselDemo() {
 
 interface BenefitsProps {
   imgPos?: "left" | "right";
+  id?: string;
   data: {
     imgPos?: "left" | "right";
     title: string;
@@ -115,7 +111,7 @@ interface BenefitsProps {
 export const Benefits = (props: Readonly<BenefitsProps>) => {
   const { data } = props;
   return (
-      <Container className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
+      <Container className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap " id={props.id}>
         <div
           className={`flex items-center justify-center w-full lg:w-1/2 ${
             props.imgPos === "right" ? "lg:order-1" : ""
