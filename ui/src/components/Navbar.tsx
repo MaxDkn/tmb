@@ -14,7 +14,7 @@ export const Navbar = () => {
     { label: "Détails", type: "anchor", target: "#details" },
     { label: "Équipe", type: "anchor", target: "#equipe" },
     { label: "Itinéraire", type: "page", target: "/itineraire" },
-    { label: "Budget", type: "page", target: "/budget" },
+    { label: "Budget", type: "page", target: "#budget" },
     { label: "Contact", type: "anchor", target: "#contact" },
   ];
 

@@ -21,12 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class">
           <Navbar />
           <div>{children}</div>
-          <Footer />
+          {/*<Footer />*/}
           <PopupWidget />
         </ThemeProvider>
       </body>

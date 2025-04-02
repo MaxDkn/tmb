@@ -3,10 +3,7 @@ import { Hero } from "@/components/Hero";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Map } from "@/components/Video";
-import { Testimonials } from "@/components/Testimonials";
-import { Faq } from "@/components/Faq";
-import { Cta } from "@/components/Cta";
-
+import { BudgetTable } from "@/components/Budget";
 import { benefitOne } from "@/components/data";
 
 export default function Home() {
@@ -37,6 +34,16 @@ export default function Home() {
       </SectionTitle>
 
       <Map/>
+      <SectionTitle 
+        preTitle="Notre budget"
+        title="Notre esimation du coût du projet"
+        id="budget"
+        
+      >
+        <BudgetTable/>
+
+      </SectionTitle>
+      {/*
 
       <SectionTitle
         preTitle="Testimonials"
@@ -54,7 +61,7 @@ export default function Home() {
       </SectionTitle>
 
       <Faq />
-      <Cta />
+      <Cta />*/}
     </Container>
   );
 }
