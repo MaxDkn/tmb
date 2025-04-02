@@ -5,6 +5,7 @@ import { Benefits } from "@/components/Benefits";
 import { Map } from "@/components/Video";
 import { BudgetTable } from "@/components/Budget";
 import { benefitOne } from "@/components/data";
+import { Faq } from "@/components/Faq";
 
 export default function Home() {
   return (
@@ -60,7 +61,6 @@ export default function Home() {
         conversion rate as well as support or chat requests.
       </SectionTitle>
 
-      <Faq />
       <Cta />*/}
     </Container>
   );

@@ -1,7 +1,7 @@
 {
   "name": "nextly-template",
   "version": "2.0.0",
-  "description": "Nextly Landing Page Template",
+  "description": "Official website of our project",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,14 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/web3templates/nextly-template"
+    "url": "https://github.com/MaxDkn/tmb"
   },
   "keywords": [
     "nextjs",
     "tailwindcss",
-    "free"
+    "trek",
+    "mont blanc"
   ],
-  "author": "Surjith S M",
+  "author": "MaxDkn",
   "license": "ISC",
   "dependencies": {
     "@headlessui/react": "^2.2.0",
